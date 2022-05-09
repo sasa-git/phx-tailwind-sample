@@ -19,6 +19,36 @@ link: https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html
 or exec on docker  
 `docker compose run --rm app mix phx.new . --app example_app --database mysql`
 
+## setting docker-compose and phoenix configs
+
+change config at below...
+
+```docker-compose.yml
+db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssword
+      - MYSQL_DATABASE=sample_dev # <- here
+      - MYSQL_USER=sample # <- here
+      - MYSQL_PASSWORD=p@ssword
+      - TZ='Asia/Tokyo'
+```
+
+```dev.exs
+# Configure your database
+config :live_view_todos, LiveViewTodos.Repo,
+  username: "live_view_todos", # <- here
+  password: "p@ssword", # <- here
+  hostname: "db", # <- here
+  database: "live_view_todos_dev",
+```
+
+When run `docker compose up` before modify settings, maybe causes error. So you run `docker volume ls` then `docker volume rm xxx-mysqldb-local_data`
+
+## run docker compose
+
+`docker compose up`
+
 ## phx.routes
 
 `docker compose run --rm app mix phx.routes`
