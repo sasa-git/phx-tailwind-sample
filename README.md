@@ -62,6 +62,8 @@ When run `docker compose up` before modify settings, maybe causes error. So you 
 
 `mix phx.gen.context Service Project projects account_id:references:accounts name:string status:integer`  
 
+`mix phx.gen.live Service Post posts account_id:references:accounts message:text`
+
 ## ecto
 
 `mix ecto.migrate`  
