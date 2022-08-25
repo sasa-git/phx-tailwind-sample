@@ -9,7 +9,8 @@ services:
       - TEST_DB_USER=root
       - TEST_DB_PASSWORD=p@ssword
       - TEST_DB_HOST=db
-      - TEST_DB_NAME=sample_test
+      - TEST_DB_NAME=tailwind_sample_test
+      - MIX_ENV=dev
     volumes:
       - .:/app
       - phx-node_modules:/app/assets/node_modules
@@ -24,15 +25,16 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=p@ssword
-      - MYSQL_DATABASE=sample_dev
-      - MYSQL_USER=sample
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=tailwind_sample_dev
+      - MYSQL_USER=tailwind_sample
       - MYSQL_PASSWORD=p@ssword
       - TZ='Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - mysqldb-local_data:/var/lib/mysql
     ports:
-      - 4306:4306
+      - 4306:3306
     networks:
       - phx-network
 
