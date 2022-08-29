@@ -14,7 +14,7 @@
 <% end %>
 
 <table class="mx-auto my-4 w-full">
-  <thead>
+  <thead class="border-b-4 border-double border-slate-300">
     <tr>
       <th class="w-3/4">Message</th>
 
@@ -23,7 +23,7 @@
   </thead>
   <tbody id="posts">
     <%= for post <- @posts do %>
-      <tr id={"post-#{post.id}"} class="">
+      <tr id={"post-#{post.id}"} class="border-b-2 border-slate-300">
         <td><%= post.message %></td>
 
         <td class="flex flex-row my-3">
