@@ -1,4 +1,4 @@
-<h1>Listing Posts</h1>
+<h1 class="text-lg">Listing Posts</h1>
 
 <%= if @live_action in [:new, :edit] do %>
   <.modal return_to={Routes.post_index_path(@socket, :index)}>
@@ -36,4 +36,4 @@
   </tbody>
 </table>
 
-<span><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new) %></span>
+<button class="rounded bg-fuchsia-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 duration-150 p-2"><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new), class: "text-white" %></button>
