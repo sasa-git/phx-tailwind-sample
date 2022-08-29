@@ -133,10 +133,12 @@
 
 @layer components {
   .btn-simple {
-    @apply rounded bg-fuchsia-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 duration-150 p-2 text-white
+    @apply rounded bg-fuchsia-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 duration-150 p-2 text-white inline-block w-full
   }
 
   .btn-danger {
-    @apply rounded bg-red-500 hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 duration-150 p-2 text-white
+    @apply rounded bg-red-500 hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 duration-150 p-2 text-white inline-block w-full
+    /* aタグはinline要素のため、widthの指定が効かない。そのためinline-blockを割り当てている */
+    /* https://ponsyon.com/archives/1679 */
   }
 }
