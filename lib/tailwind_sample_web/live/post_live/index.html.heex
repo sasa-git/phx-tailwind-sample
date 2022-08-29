@@ -13,12 +13,12 @@
   </.modal>
 <% end %>
 
-<table>
+<table class="mx-auto my-4 w-full">
   <thead>
     <tr>
-      <th>Message</th>
+      <th class="w-3/4">Message</th>
 
-      <th></th>
+      <th class="w-1/4"></th>
     </tr>
   </thead>
   <tbody id="posts">
@@ -27,13 +27,13 @@
         <td><%= post.message %></td>
 
         <td>
-          <span><%= live_redirect "Show", to: Routes.post_show_path(@socket, :show, post) %></span>
-          <span><%= live_patch "Edit", to: Routes.post_index_path(@socket, :edit, post) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: post.id, data: [confirm: "Are you sure?"] %></span>
+          <span class="btn-simple"><%= live_redirect "Show", to: Routes.post_show_path(@socket, :show, post) %></span>
+          <span class="btn-simple"><%= live_patch "Edit", to: Routes.post_index_path(@socket, :edit, post) %></span>
+          <span class="btn-danger"><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: post.id, data: [confirm: "Are you sure?"] %></span>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<button class="rounded bg-fuchsia-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 duration-150 p-2"><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new), class: "text-white" %></button>
+<button class="rounded bg-fuchsia-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 duration-150 p-2 text-white"><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new) %></button>
